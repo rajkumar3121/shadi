@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saloni ❤️ Harsh Raj Prince</title>
+
+<style>
+body {
+  margin:0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #ffdde1, #ee9ca7);
+  text-align:center;
+  color:#333;
+}
+
+/* 💖 WELCOME SCREEN */
+#welcome {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(135deg, #ff4d6d, #ff758c);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  color: white;
+}
+
+#welcome h1 {
+  font-size: 40px;
+}
+
+#welcome button {
+  margin-top: 20px;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 6px;
+  background: white;
+  color: #ff4d6d;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* MAIN CONTENT */
+.container {
+  padding:40px 20px;
+}
+
+h1 {
+  font-size:36px;
+  color:#b30059;
+}
+
+.card {
+  background:white;
+  padding:20px;
+  margin:20px auto;
+  max-width:400px;
+  border-radius:12px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+button {
+  background:#ff4d6d;
+  color:white;
+  border:none;
+  padding:12px;
+  border-radius:6px;
+  cursor:pointer;
+  width:100%;
+}
+
+button:hover {
+  background:#e6004c;
+}
+
+#countdown {
+  font-size:20px;
+  margin:15px;
+  font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 💖 WELCOME -->
+<div id="welcome">
+  <h1>You're Invited 💍</h1>
+  <p>Saloni ❤️ Harsh Raj Prince</p>
+  <button onclick="enterSite()">Enter Wedding</button>
+</div>
+
+<!-- MAIN -->
+<div class="container">
+
+  <h1>Saloni ❤️ Harsh Raj Prince</h1>
+  <h3>We are getting married 💍</h3>
+
+  <div id="countdown"></div>
+
+  <!-- Invitation -->
+  <div class="card">
+    <h2>💌 Invitation</h2>
+    <p>
+      Together with their families,<br>
+      Saloni & Harsh Raj Prince<br>
+      invite you to their wedding.
+    </p>
+  </div>
+
+  <!-- Details -->
+  <div class="card">
+    <h2>📅 Wedding Details</h2>
+    <p><b>Date:</b> 26 April 2026</p>
+    <p><b>Time:</b> 7:00 PM</p>
+    <p><b>Venue:</b> Samastipur, Bihar</p>
+
+    <a href="https://www.google.com/maps/search/Samastipur+Bihar" target="_blank">
+      <button>Get Directions 📍</button>
+    </a>
+  </div>
+
+  <!-- RSVP -->
+  <div class="card">
+    <h2>RSVP</h2>
+    <form onsubmit="submitForm(event)">
+      <input type="text" placeholder="Your Name" required style="width:100%;padding:10px;margin:5px 0;">
+      
+      <select style="width:100%;padding:10px;margin:5px 0;">
+        <option>Will Attend</option>
+        <option>Not Attend</option>
+      </select>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <!-- Share -->
+  <div class="card">
+    <h2>📲 Share</h2>
+    <a href="https://wa.me/?text=You're invited to Saloni ❤️ Harsh Raj Prince Wedding 💍" target="_blank">
+      <button>Share on WhatsApp</button>
+    </a>
+  </div>
+
+</div>
+
+<script>
+// ENTER BUTTON
+function enterSite(){
+  document.getElementById("welcome").style.display="none";
+}
+
+// COUNTDOWN
+const date = new Date("April 26, 2026 19:00:00").getTime();
+
+setInterval(()=>{
+  const now = new Date().getTime();
+  const diff = date - now;
+
+  if(diff <= 0){
+    document.getElementById("countdown").innerHTML = "🎉 Wedding Time!";
+    return;
+  }
+
+  const d = Math.floor(diff/(1000*60*60*24));
+  const h = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+  const m = Math.floor((diff%(1000*60*60))/(1000*60));
+
+  document.getElementById("countdown").innerHTML =
+  `⏳ ${d} days ${h} hours ${m} min left`;
+
+},1000);
+
+// RSVP
+function submitForm(e){
+  e.preventDefault();
+  alert("Thank you ❤️ See you at the wedding!");
+}
+</script>
+
+</body>
+</html>
